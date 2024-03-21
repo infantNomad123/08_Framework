@@ -142,7 +142,7 @@ public class ParameterController {
 	@PostMapping("test3")
 	public  String paramTest(
 			@RequestParam(value = "color", required = false) String[] colorArr, 
-			@RequestParam(value = "fruit" ,required = false) List<String> fruitsList,
+			@RequestParam(value = "fruit"  ,required = false) List<String> fruitsList,
 			@RequestParam Map<String, Object> paramMap
 			) {
 		
@@ -197,7 +197,7 @@ public class ParameterController {
 		log.debug("inputMember :" + inputMember.toString());
 		
 		
-		return "redirect:/param/main";
+		return "redirect:/param/main";        
 	}
 	
 }
