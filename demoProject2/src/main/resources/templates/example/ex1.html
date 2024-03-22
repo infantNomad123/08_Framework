@@ -132,7 +132,7 @@
         </thead>
 
         <tbody>
-            <!-- th:each 가 설정된 태그 전체(tr)가 반복된다  -->
+            <!-- th:each 가 설정된 태그 전체(tr)가 반복된다    -->
             <tr th:each=" std : ${stdList}" th:object = "${std}">
                 <td th:text = "*{studentNo}">학번</td>
                 <td th:text = "*{name}">이름</td>
@@ -140,6 +140,8 @@
             </tr>
         </tbody>
     </table>
+       <!-- html 파일 전체를 하나의 조각으로 취급 -->
+       <th:block th:replace="~{fragments/footer}"></th:block>
 
 </body>
 </html>
