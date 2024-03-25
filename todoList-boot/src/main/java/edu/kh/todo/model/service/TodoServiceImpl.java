@@ -70,4 +70,48 @@ public class TodoServiceImpl implements TodoService {
 		return mapper.addTodo(todo);
 	}
 	
+	
+	//할 일 상세 조회
+	@Override
+	public Todo todoDetail(int todoNo) {
+		// TODO Auto-generated method stub
+		return mapper.todoDetail(todoNo);
+	}
+
+	@Override
+	public int todoDelete(int todoNo) {
+		// TODO Auto-generated method stub
+		return mapper.todoDelete(todoNo);
+	}
+
+	
+	
+
+
+	@Override
+	public int todoUpdate(Todo todo) {
+		
+		//마이바티스 객체를 이용할 때
+		//SQL에 전달할 수 있는 퍼러미터는 오직 1개!!!
+		// -> 여러 데이터를 전달하고 싶으면 Map, DTO, List로 묶어서 전달
+		return mapper.todoUpdate(todo) ;
+	}
+
+@Override
+public int changeComplete(Todo todo) {
+	// TODO Auto-generated method stub
+	return mapper.changeComplete(todo) ;
+}
+
+@Override
+public int getTotalCount() {
+	return mapper.getTotalCount();
+}
+
+@Override
+public int getCompleteCount() {
+	// TODO Auto-generated method stub
+	return mapper.getCompleteCount();
+}
+	
 }
