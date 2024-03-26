@@ -113,5 +113,12 @@ public int getCompleteCount() {
 	// TODO Auto-generated method stub
 	return mapper.getCompleteCount();
 }
+//할 일 목록 조회
+	@Override
+	public List<Todo> selectList() {
+		// TODO Auto-generated method stub
+		return mapper.selectAll();
+	}
+	
 	
 }
