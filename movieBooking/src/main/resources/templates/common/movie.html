@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
@@ -20,14 +20,14 @@
         
        
             <tr th:each = "movie : ${movieList}" th:object="${movie}">
-              <td th:text="*{movieNo}">할 일 번호</td>
+              <td th:text="*{movieName}"></td>
             
               <td>
                 <a th:href="@{/movie/detail(movieNo=*{movieNo})}" 
-                   th:text="*{movieName}">할 일 제목</a>
+                   th:text="*{movieName}"></a>
               </td>
-              <td th:text="*{complete}">완료 여부 (Y/N)</td>
-              <td th:text="*{regDate}">등록일</td>
+              <td th:text="*{rating}"></td>
+              <td th:text="*{price}"></td>
             </tr>
        
     
