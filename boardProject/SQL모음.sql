@@ -80,6 +80,6 @@ SELECT * FROM "MEMBER";
 -- --> 이메일이 일치하는 회원 + 탈퇴 안한 회원 조건만 추가
 
 
-
+SELECT * FROM "MEMBER";
 
 
