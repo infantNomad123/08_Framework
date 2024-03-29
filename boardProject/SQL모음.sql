@@ -82,4 +82,10 @@ SELECT * FROM "MEMBER";
 
 SELECT * FROM "MEMBER";
 
+--이메일 중복 검사 (탈퇴 안한 회원 중 같은 이메일이 있는지 조회)
+SELECT count(*) FROM "MEMBER"
+WHERE MEMBER_DEL_FL = 'N'
+AND MEMBER_EMAIL = 'member01@kh.or.kr';
+
+SELECT * FROM "MEMBER";
 

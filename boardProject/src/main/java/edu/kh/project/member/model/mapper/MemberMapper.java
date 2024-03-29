@@ -18,4 +18,14 @@ public interface MemberMapper {
 	 * @return result
 	 */
 	public int signup(Member inputMember);
+
+	/**이메일 중복 검사
+	 * @param memberEmail
+	 * @return
+	 */
+	public int checkEmail(String memberEmail);
+
+	public int checkNickname(String memberNickname);
+
+	public int telNo(String telNo);
 }

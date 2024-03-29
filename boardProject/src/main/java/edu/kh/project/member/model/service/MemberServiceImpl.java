@@ -91,6 +91,24 @@ public class MemberServiceImpl  implements MemberService{
 		return mapper.signup(inputMember);
 	}
 	
+	//이메일 중복 검사
+	@Override
+	public int checkEmail(String memberEmail) {
+		// TODO Auto-generated method stub
+		return mapper.checkEmail(memberEmail);
+	}
+	@Override
+	public int checkNickname(String memberNickname) {
+		// TODO Auto-generated method stub
+		return mapper.checkNickname(memberNickname);
+	}
+	
+	@Override
+	public int telNo(String telNo) {
+		// TODO Auto-generated method stub
+		return mapper.telNo(telNo);
+	}
+	
 	
 }
 

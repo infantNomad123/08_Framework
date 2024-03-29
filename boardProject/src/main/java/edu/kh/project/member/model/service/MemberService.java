@@ -17,4 +17,14 @@ public interface MemberService {
 	 */
 	int signup(Member inputMember, String[] memberAddress);
 
+	/**이메일 중복 검사
+	 * @param memberEmail
+	 * @return count
+	 */
+	int checkEmail(String memberEmail);
+
+	int checkNickname(String memberNickname);
+
+	int telNo(String telNo);
+
 }
