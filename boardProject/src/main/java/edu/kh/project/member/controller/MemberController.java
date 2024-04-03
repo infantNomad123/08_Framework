@@ -1,5 +1,7 @@
 package edu.kh.project.member.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -233,6 +235,44 @@ public class MemberController {
 		return service.telNo(telNo);
 		
 	}
+	
+	/**빠른 로그인
+	 * @param memberEmail
+	 * @param model
+	 * @return
+	 */
+	@GetMapping("quickLogin")
+	public String quickLogin(
+			@RequestParam("memberEmail") String memberEmail, 
+			Model model , 
+			RedirectAttributes ra) {
+		
+			Member loginMember = service.quickLogin(memberEmail);
+			
+			if(loginMember == null) {
+				ra.addFlashAttribute("message", "해당 이메일 회원이 존재하지 않습니다");
+			}else {
+				model.addAttribute("loginMember", loginMember);
+			}
+		
+			return "redirect:/";
+		
+	}
+	
+	@ResponseBody
+	@GetMapping("selectAll")
+	public List<Member> selectAll() {
+		
+		List <Member> member = service.selectAll();
+		
+		//(java)List 
+		// -> (Spring)HttpMessageConverter 가 JSON Array (문자열)  로 변경
+		// -> (JS) ->response.json() -> [{}, {}, {}] JS 객체 배열
+		return member;
+		
+		
+	}
+	
 	
 	
 	
