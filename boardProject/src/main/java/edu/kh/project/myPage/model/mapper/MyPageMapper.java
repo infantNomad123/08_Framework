@@ -9,18 +9,26 @@ import edu.kh.project.member.model.dto.Member;
 @Mapper
 public interface MyPageMapper {
 
-	/**회원 정보 수정
+	/** 회원 정보 수정
 	 * @param inputMember
 	 * @return result
 	 */
 	int updateInfo(Member inputMember);
 
-	int changePw(int memberNo, String currentPw, String newPw);
+	/** 회원의 비밀번호 조회
+	 * @param memberNo
+	 * @return 암호화된 비밀번호
+	 */
+	String selectPw(int memberNo);
 
-	String changedPassword(int memberNo);
+	/** 비밀번호 변경
+	 * @param paramMap
+	 * @return result
+	 */
+	int changePw(Map<String, Object> paramMap);
 
-	int changedPass(Map<String, Object> map);
+	int secessYN(int memberNo);
 
-
+	String changeYN(int memberNo);
 
 }

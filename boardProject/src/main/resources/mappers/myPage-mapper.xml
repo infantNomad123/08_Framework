@@ -13,16 +13,32 @@
 		WHERE MEMBER_NO  = #{memberNo}
 	</update>
 	
-	<select id="changedPassword" resultType = "String">
+	<!-- 회원의 비밀번호 조회 -->
+	<select id="selectPw">
 		SELECT MEMBER_PW
 		FROM "MEMBER"
-		WHERE  MEMBER_NO = #{memberNo}
+		WHERE MEMBER_NO = #{memberNo}
 	</select>
-	<update id="changedPass">
-		UPDATE "MEMBER"
-		SET MEMBER_PW = #{memberPw}
+	
+	<!-- 비밀번호 변경 -->
+	<update id="changePw">
+		UPDATE "MEMBER" SET
+		MEMBER_PW = #{encPw}
 		WHERE MEMBER_NO = #{memberNo}
 	</update>
+	
+	<select id="changeYN">
+		SELECT MEMBER_PW
+		FROM "MEMBER"
+		WHERE MEMBER_NO =#{memberNo}
+	</select>
+	
+	<update id="secessYN">
+		UPDATE "MEMBER"
+		SET MEMBER_DEL_FL = 'Y'
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
+	
 	
 	
 	

@@ -433,6 +433,10 @@ label[for="headerMenuToggle"]:hover{
   background-color: var(--main-color);
 }
 
+.content-1{
+  margin: 20px 0;
+}
+
 
 
 
