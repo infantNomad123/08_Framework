@@ -22,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @Transactional(rollbackFor = Exception.class) // 모든 예외 발생 시 롤백
 @RequiredArgsConstructor
-@PropertySource("classPath:/config.properties")
+
 public class MyPageServiceImpl implements MyPageService{
 
 	private final MyPageMapper mapper;
