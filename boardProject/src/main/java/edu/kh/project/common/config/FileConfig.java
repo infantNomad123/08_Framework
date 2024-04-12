@@ -40,6 +40,14 @@ public class FileConfig  implements WebMvcConfigurer {
 	private String profileResourceLocation; // 프로필 이미지 요청 주소
 	
 	
+	@Value("${my.board.resource-handler}")
+	private String boardResourceHandler; // 프로필 이미지 요청 주소
+	
+	@Value("${my.board.resource-location}")
+	private String boardResourceLocation; // 프로필 이미지 요청 주소
+	
+	
+	
 	//요청 주소에 따라 
 	//서버 컴퓨터의 어떤 경로에 접근할지 설정
 	@Override
@@ -54,6 +62,11 @@ public class FileConfig  implements WebMvcConfigurer {
 		registry
 		.addResourceHandler(profileResourceHandler)          // /myPage/profile
 		.addResourceLocations(profileResourceLocation); 
+		
+		//게시글 이미지 요청 -서버 
+		registry
+		.addResourceHandler(boardResourceHandler)
+		.addResourceLocations(boardResourceLocation);
 	}
 	
  /*MultipartResolver 설정*/

@@ -1,11 +1,13 @@
-const searchBooks = document.querySelector("searchBooks");
+const searchBooks = document.querySelector("#searchBooks");
+const tBody = document.querySelector("#tBody");
 
 searchBooks.addEventListener("click", () => {
+	tBody.innerHTML = "";
 
-    fetch("/main")
+    fetch("main")
     .then(response => response.json())
     .then(result => {
-        const obj = ["bookNo","bookName","bookWriter", "bookPrice", "regDate" ]
+        const obj = ["bookNo","bookTitle","bookWriter", "bookPrice", "regDate"];
 		
 
 		result.forEach((books, index) => {
@@ -13,13 +15,9 @@ searchBooks.addEventListener("click", () => {
 			obj.forEach((key) => {
 				const td = document.createElement("td");
 				td.innerHTML = books[key];
-				if(td.innerHTML = "" ){
-					td.append(document.createElement("button"));
-				}
-				tr.append(td);
-            
-            
+				tr.appendChild(td);
         })
+		tBody.appendChild(tr);
     })
 
 })

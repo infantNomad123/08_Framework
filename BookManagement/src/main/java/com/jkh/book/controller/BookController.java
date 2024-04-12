@@ -66,6 +66,7 @@ public class BookController {
 	@GetMapping("main")
 	public List<Book> selectAll(){
 		List<Book> bookLists = service.selectAll();
+		
 		return bookLists;
 		
 	}
