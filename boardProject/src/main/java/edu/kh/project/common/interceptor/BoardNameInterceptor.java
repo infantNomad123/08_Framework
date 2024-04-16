@@ -39,7 +39,8 @@ public class BoardNameInterceptor implements HandlerInterceptor {
 	 
 		String uri = request.getRequestURI();
 //		log.debug("uri : " + uri);
-										//["", "board", "1"]
+			
+		try{//["", "board", "1"]
 		int boardCode = Integer.parseInt(uri.split("/")[2]);
 		
 		//boardTypeList 에서 boardCode를 하나씩 꺼내어 비교
@@ -55,8 +56,14 @@ public class BoardNameInterceptor implements HandlerInterceptor {
 				break;
 			}
 		}
+		}
+		catch(Exception e){
+			
+		}
 		HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
+		
 	}
+	
 	
 	
 

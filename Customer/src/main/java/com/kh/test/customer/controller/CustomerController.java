@@ -28,18 +28,21 @@ public class CustomerController {
 			) {
 		
 		   int result = service.addCustomer(customerName, customerTel, customerAddress);
-		   
+		   String message = null;
 		   if(result > 0) {
-			   model.addAttribute("customerName", customerName);
+			    message = "수정 성공!!";
+			   model.addAttribute("remark", message);
+			   
 			   return "result";
 		   }
 		   
-		   
+		  message = "회원 번호가 일치하는 회원이 없습니다";
+		   model.addAttribute("remark", message);
 		   return "redirect:/";
 		   
-		   
-	
 	}
+	
+	
 
 	
 	

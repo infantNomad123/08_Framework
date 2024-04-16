@@ -735,9 +735,58 @@ CONNECT BY PRIOR COMMENT_NO = PARENT_COMMENT_NO
 ORDER SIBLINGS BY COMMENT_NO;
 
 
+/*좋아요 테이블 (BOARD_LIKE) 샘플 대이터 추가*/
+INSERT INTO "BOARD_LIKE"
+VALUES(1,1997);  -- 1번 회원이 1998본 글에 조호아요를 클릭함
+
+COMMIT;
 
 
+--좋아요 여부 확인 (1:0 / 2:X)
+SELECT COUNT(*) FROM "BOARD_LIKE"
+WHERE MEMBER_NO = 1
+AND BOARD_NO = 1997;
 
+SELECT * FROM "BOARD_LIKE";
+
+-- TB_USER 테이블 생성 및 SEQ_UNO 시퀀스 생성
+
+SELECT * FROM TB_USER;
+
+/* 여러 행을 한 번에 삽입하는 방법! -> INSERT + SUBQUERY */
+-- 시퀀스로 번호 생헝하는 부분을 별도 함수로 분리 후 호출하면 문제 없음
+
+INSERT INTO "BOARD_IMG" 
+(SELECT NEXT_IMG_NO(), '경로1', '원본1', '변경1', 1, 1999 FROM DUAL
+UNION
+SELECT NEXT_IMG_NO(), '경로2', '원본2', '변경2', 2, 1999 FROM DUAL
+UNION
+SELECT NEXT_IMG_NO(), '경로3', '원본3', '변경3', 3, 1999 FROM DUAL
+);
+
+ROLLBACK;
+
+-- SEQ_IMG_NO 시퀀스의 다음 값을 바나환하는 함수 생성
+CREATE OR REPLACE FUNCTION NEXT_IMG_NO
+
+-- 반환형
+RETURN NUMBER
+
+--사용할 변수
+IS IMG_NO NUMBER;
+
+BEGIN 
+	SELECT SEQ_IMG_NO.NEXTVAL 
+	INTO IMG_NO
+	FROM DUAL;
+	
+	RETURN IMG_NO;
+END;
+;
+
+SELECT NEXT_IMG_NO() FROM DUAL;
+
+SELECT * FROM "BOARD_IMG";
 
 
 

@@ -1,6 +1,7 @@
 package com.kh.test.user.model.service;
 
 import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 
@@ -14,8 +15,9 @@ import com.kh.test.user.model.mapper.UserMapper;
 
 
 import lombok.RequiredArgsConstructor;
-@Transactional
 @Service
+@Transactional
+
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 	
