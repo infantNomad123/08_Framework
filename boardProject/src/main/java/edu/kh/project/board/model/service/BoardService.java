@@ -40,4 +40,8 @@ public interface BoardService {
 	 */
 	int updateReadCount(int boardNo);
 
+
+
+	
+
 }

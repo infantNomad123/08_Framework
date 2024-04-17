@@ -63,11 +63,31 @@ boardLike.addEventListener("click", e => {
 
 })
 
-
-
-
 // 2) 현재 게시글 번호 준비
 //Thymeleaf(Template Engine) 
 //Java web is mostly servlet based 
 // Servlet -> 요청 받으면 응답 화면 만들어서 출력
 // Thymeleaf is preferred over jsp because it works in standalone environment
+
+const deleteBtn = document.querySelector("#deleteBtn");
+
+deleteBtn.addEventListener("click", () => {
+    const con = confirm("삭제 하시겠습니까? (y/n)");
+
+    if(!con){
+        alert("취소됨");
+    }
+    location.href = `/editBoard/${boardCode}/${boardNo}/delete`;
+
+});
+
+const updateBtn = document.querySelector("#updateBtn");
+if(updateBtn != null) { // 수정 버튼 존재 시
+
+    updateBtn.addEventListener("click", ()=>{
+
+        // 현재 : /board/1/2010?cp=1
+        //  /editBoard/1/2010/update?cp=1 (GET 방식)
+        location.href = location.pathname.replace('board','editBoard') + "/update" + location.search;
+    })
+}

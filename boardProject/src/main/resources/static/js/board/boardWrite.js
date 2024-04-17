@@ -118,8 +118,8 @@ for(let i=0; i<inputImageList.length; i++){
 
 // 작성 폼 유효성 검사
 document.querySelector("#boardWriteFrm").addEventListener( "submit",e => {
-    const boardTitle = document.querySelector("[name='boardTitle'");
-    const boardContent = document.querySelector("[name='boardContent'");
+    const boardTitle = document.querySelector("[name='boardTitle']");
+    const boardContent = document.querySelector("[name='boardContent']");
 
     if(boardTitle.value.trim().length == 0){
         alert("제목을 작성해 주세요");
