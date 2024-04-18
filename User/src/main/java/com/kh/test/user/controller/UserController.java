@@ -25,29 +25,27 @@ public class UserController {
 	
 	private final UserService service;
 	
-
-	
 	@PostMapping("main")
 	public String selectId(
-			@RequestParam("searchId") String searchId,
-			Model model
-			){
-			List <User> lists = service.selectId(searchId);
 			
-			if(lists.isEmpty()) {
-				return "searchfail";
-			}else {
-				model.addAttribute("user", lists);
-				return "searchSuccess";
-			}
-			
+			Model model) {
+		
+		List<User> userList = service.selectAll();
+		
+		
+			model.addAttribute("user",userList);
+			return "searchSuccess";
+		
+		
 	}
 	
-	@ResponseBody
-	@GetMapping("main")
-	public List <User> selectAll(Model model) {
-		List<User> lists = service.selectAll();
-		return lists;
-	}
+
+	
+	
+
+	
+
+	
+	
 	
 }

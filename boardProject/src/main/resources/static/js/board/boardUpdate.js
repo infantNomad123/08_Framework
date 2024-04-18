@@ -315,3 +315,4 @@ boardUpdateFrm.addEventListener("submit", e => {
 
   document.querySelector("[name='querystring']").value = location.search;
 });
+

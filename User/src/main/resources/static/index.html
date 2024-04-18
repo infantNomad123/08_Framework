@@ -11,7 +11,7 @@
         <input type="text" name="searchId" id="searchId" placeholder = "회원 아이디 입력">
         <button id = "searchBtn">조회</button>
 
-        <table>
+        <table border ="1">
             <thead>
                 <th>회원번호</th>
                 <th>회원아이디</th>
@@ -19,10 +19,13 @@
                 <th>회원나이</th>
             </thead>
 
-            <tbody border = "1" th:each = "user:${user}">
+            <tr th:each = user:${user}>
+                <td name = "userNo" th:text = ${user.userNo}></td>
+                <td name = "userId" th:text = ${user.userId}></td>
+                <td name = "userName" th:text = ${user.userName}></td>
+                <td name = "userAge" th:text = ${user.userAge}></td>
                 
-
-            </tbody>
+            </tr>
         </table>
     </form>
 

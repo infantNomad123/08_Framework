@@ -29,7 +29,7 @@ boardLike.addEventListener("click", e => {
         "memberNo" : loginMemberNo,
         "boardNo"  : boardNo,
         "likeCheck" : likeCheck
-    } ;
+    };
 
     //4. 좋아요 INSERT/DELETE 비동기 요청
     fetch("/board/like", {
@@ -91,3 +91,21 @@ if(updateBtn != null) { // 수정 버튼 존재 시
         location.href = location.pathname.replace('board','editBoard') + "/update" + location.search;
     })
 }
+
+//-----------------------------------------------------------------------------------------------------
+
+/* 목록으로 돌아가는 버튼 */
+const goToListBtn = document.querySelector("#goToListBtn");
+
+goToListBtn.addEventListener("click", () => {
+    //상세조회 : /board/1/2011?cp=1
+    //목록   :  /board/1?cp=1
+
+    let url = location.pathname;
+    url = url.substring(0, url.lastIndexOf("/"));
+    location.href = url + location.search;
+                    //쿼리스트링    
+
+
+})
+
