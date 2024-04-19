@@ -26,15 +26,11 @@ public class UserController {
 	private final UserService service;
 	
 	@PostMapping("main")
-	public String selectId(
-			
-			Model model) {
+	public String selectId(Model model) {
 		
 		List<User> userList = service.selectAll();
-		
-		
-			model.addAttribute("user",userList);
-			return "searchSuccess";
+		model.addAttribute("user",userList);
+		return "searchSuccess";
 		
 		
 	}
