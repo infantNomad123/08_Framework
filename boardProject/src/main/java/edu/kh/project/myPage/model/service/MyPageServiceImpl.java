@@ -318,6 +318,8 @@ public class MyPageServiceImpl implements MyPageService{
 			}
 			
 			
+			
+			
 			//세션 회원 정보에서 프로필 이미지 경로를
 			// 업데이트한 경로로 변경
 			loginMember.setProfileImg(updatePath);

@@ -5,7 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -19,26 +21,35 @@ import lombok.RequiredArgsConstructor;
 public class CustomerController {
 	private final CustomerService service;
 	
+	
+	@ResponseBody
+	@GetMapping("main")
+		public String mainPage() {
+			return "index";
+	}
+	
+	
+	
+	@ResponseBody
 	@PostMapping("main")
-	public String addCustomer(
+	public int addCustomer(
 			@RequestParam("inputName") String customerName,
 			@RequestParam("inputTel") String customerTel,
-			@RequestParam("inputAddress") String customerAddress,Model model
-			
-			) {
+			@RequestParam("inputAddress") String customerAddress,
+			Model model) {
 		
 		   int result = service.addCustomer(customerName, customerTel, customerAddress);
-		   String message = null;
-		   if(result > 0) {
-			    message = "수정 성공!!";
-			   model.addAttribute("remark", message);
-			   
-			   return "result";
-		   }
-		   
-		  message = "회원 번호가 일치하는 회원이 없습니다";
-		   model.addAttribute("remark", message);
-		   return "redirect:/";
+//		   if(result > 0) {
+//			    message = "수정 성공!!";
+//			   model.addAttribute("remark", message);
+//			   
+//			   return "result";
+//		   }
+//		   
+//		  message = "회원 번호가 일치하는 회원이 없습니다";
+//		   model.addAttribute("remark", message);
+//		   return "redirect:/";
+		   return result;
 		   
 	}
 	

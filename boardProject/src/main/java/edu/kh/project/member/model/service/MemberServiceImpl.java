@@ -111,6 +111,7 @@ public class MemberServiceImpl  implements MemberService{
 		return mapper.telNo(telNo);
 	}
 	
+	@Transactional
 	//빠른 로그인
 	// -> 일반 로그인
 	@Override
@@ -123,6 +124,7 @@ public class MemberServiceImpl  implements MemberService{
 		
 		//조회된 비밀번호 null로 변경
 		loginMember.setMemberPw(null);
+		
 		return loginMember;
 	}
 	

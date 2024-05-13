@@ -8,7 +8,8 @@
             <li class="comment-row" 
                 th:each="comment : ${board.commentList}" 
                 th:classappend="${comment.parentCommentNo} != 0 ? child-comment" 
-                th:object="${comment}">
+                th:object="${comment}"
+                th:id="|c*{commentNo}|">
 
                 <th:block th:if="*{commentDelFl} == 'Y'">
                     삭제된 댓글 입니다
@@ -37,6 +38,8 @@
                             <button th:onclick="|deleteComment(*{commentNo})|">삭제</button>
                         </th:block>
                         <!-- 로그인 회원과 댓글 작성자가 같은 경우 -->  
+
+                    
 
                     </div>
                 </th:block>
